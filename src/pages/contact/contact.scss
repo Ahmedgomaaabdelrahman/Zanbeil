@@ -1,0 +1,30 @@
+page-contact {
+textarea.text-input{
+  padding: 0px 10px;
+}
+
+  .message{
+          margin-top: 20%;
+    border: 1px solid brown;
+    border-radius: 15px; 
+    background-color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }  
+  .button{
+      margin-top: 35%;
+    width: 70%;
+    background-color: coral;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  .input-cover{
+      
+    position:fixed !important;
+    top:35%;
+   
+      
+  }
+}

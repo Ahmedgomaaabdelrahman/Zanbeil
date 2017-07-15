@@ -1,0 +1,134 @@
+// http://ionicframework.com/docs/v2/theming/
+.toolbar ion-title{
+  padding: 0px 10px 1px !important;
+  span{
+    color:#ca530b
+  }
+}
+
+.back-button.show-back-button {
+  display: inline-block;
+  color:#20da3a !important;
+}
+
+.maintitle{
+  text-align: center;
+  padding: 0px !important;
+  span{
+    color: #ca530b !important;
+  }
+}
+.cart{
+  border: 1px solid white;
+  border-radius: 10px !important;
+  padding-bottom: 10px;
+  display: inline-block;
+  //margin: 11px
+  text-align: center
+}
+.segment-button{
+  text-transform: none !important;
+  font-size: 1.2em !important;
+}
+.button{
+  text-transform: none;
+}
+
+ion-footer {
+
+  position: fixed !important;
+
+  div{
+    button{
+      background-color: #ca530b;
+      border-radius: 12px !important;
+      text-transform: none;
+      width: 75%;
+      height: 50px !important;
+      text-align:center;
+      margin-left: 12% !important;
+    }
+  }
+}
+
+.carticon{
+  background-color: black;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  font-size: 50px;
+  padding-top: 15px;
+
+}
+.fixdir{
+  direction: ltr;
+}
+
+.platform-android .lgg{
+  position: absolute;
+  right:95%;
+  margin: 0 15px;
+  color: #fff;
+
+}
+.alert-md .alert-wrapper{
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 10px;
+    background: #e4e3e1;
+    color: white;
+    text-align: center;
+}
+.alert-md .alert-head {
+    padding: 24px 24px 20px 24px;
+    text-align: center !important;
+    color: #424242;
+    background: aliceblue;
+    border-radius: inherit;
+}
+
+.alert-md .alert-button {
+    position: relative;
+    overflow: hidden;
+    margin: 0 8px 0 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: right;
+    text-transform: uppercase;
+    color: #f4f4f4;
+    background-color: #ee741a;
+}
+.button-inner{
+  text-align: right;
+}
+.alert-md .alert-message{
+  padding-top:10px;
+
+}
+.alert-md .alert-button{
+  margin-left: auto;
+  margin-right: auto;
+}
+.alert-md [aria-checked=true] .alert-radio-icon {
+    border-color: #ec6806;
+}
+.alert-md [aria-checked=true] .alert-radio-label {
+    color: #ec6806;
+}
+.alert-md .alert-radio-inner{
+  background-color: #ec6806;
+}
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Login'|translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="bag">
+    <img src="assets/imgs/512.png">
+  </div>
+  <div>
+    <form (ngSubmit)="login()" class="forma" #loginForm="ngForm">
+      <ion-input name="tel" [(ngModel)]="loginCredentials.mobile"
+                 required type="tel" placeholder="{{'Phone'| translate}}"></ion-input>
+      <ion-input name="password" [(ngModel)]="loginCredentials.password" type="password" pattern=".{6,}"
+                 required placeholder="{{'Password'| translate}}"></ion-input>
+
+      <!--click function on login button just for test-->
+
+      <button ion-button  block color="main" class="input" type="submit" [disabled]="!loginForm.form.valid">{{'Login' |
+        translate}}
+      </button>
+    </form>
+    <div class="forma">
+      <button ion-button class="clearbutton" clear (click)="forgetPassword()">{{'Forgot Your Password' | translate}}</button>
+      <label> </label>
+      <button ion-button class="clearbutton" clear style="padding-top:10px !important" (click)="navSingup()">
+        {{"Create a new account now" | translate}}
+      </button><br>
+       <button ion-button clear (click)="gotomain()">{{'Skip Login'|translate}}</button>
+    </div>
+  </div>
+</ion-content>

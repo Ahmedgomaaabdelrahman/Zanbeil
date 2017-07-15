@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start *ngIf="plt.is('ios')">
+      <button ion-button class="lgg" *ngIf="!grid" icon-only (click)="switchView()">
+        <ion-icon name="grid"></ion-icon>
+      </button>
+
+      <button ion-button class="lgg" *ngIf="grid" icon-only (click)="switchView()">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="!plt.is('ios')">
+      <button ion-button class="lgg" *ngIf="!grid" icon-only (click)="switchView()">
+        <ion-icon name="grid"></ion-icon>
+      </button>
+
+      <button ion-button class="lgg" *ngIf="grid" icon-only (click)="switchView()">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+
+      <button ion-button  icon-only  (click)="searchDialog()">
+        <ion-icon ios="ios-search" md="md-search" ></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title >{{'Main'|translate}}</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <div class="more">
+    <span>{{'More'|translate}}</span>
+    <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+  </div>
+  <div *ngIf="productsResponse" class="totaldiv">
+    <div style="background-color:white">
+      <ion-scroll scrollX="true" style="width:100vw;height:51px" >
+        <ion-segment [(ngModel)]="Categories">
+          <ion-segment-button  *ngFor="let fcategory of productsResponse; let i = index" value="{{fcategory.name_ar}}" >
+            <div (click)="changeSegB(productsResponse[i])">{{productsResponse[i].name_ar}}</div>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-scroll>
+    </div>
+
+
+    <div [ngSwitch]="Categories"> 
+
+      <div *ngFor="let category of productsResponse; let i = index">
+        <!--start fruits cat-->
+        <div *ngSwitchCase="category.name_ar" class="category">
+          <ion-row *ngIf="grid">
+            <ion-col col-6 *ngFor="let Product of category.product">
+              <ion-card class="cart" (click)="debugThis(product)">
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                      <img *ngIf="Product.product_image[0].name != null" [src]="Product.product_image[0].name" (click)="navItemDetails(Product)"/>
+                    </ion-row>
+                    <ion-row>
+                      <h5 *ngIf="Product.name_ar != null" >{{Product.name_ar}}</h5>
+                    </ion-row>
+                    <ion-row>
+                      <button (click)="addToCart($event,Product)" ion-button class="btn" color="secondary" outline block>
+                        {{'Add to cart'|translate}}
+                      </button>
+                    </ion-row>
+                  </ion-grid>
+                  <div class="price" (click)="showRadio(Product)">
+                    <ion-note class="noteleft" *ngIf="Product.measure_uint[0].price != null">
+                      {{Product.measure_uint[0].price}} SAR
+                    </ion-note>
+                    <ion-note class="noteright" *ngIf="Product.measure_uint[0].name_ar != null">
+                      {{Product.measure_uint[0].name_ar}}
+                    </ion-note>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <div *ngIf="!grid">
+            <ion-card class="cart" *ngFor="let Product of category.product">
+              <ion-row (click)="debugThis(Product)">
+                <ion-col col-3>
+                  <ion-avatar item-left>
+                    <img  *ngIf="Product.product_image[0].name != null" class="image" [src]="Product.product_image[0].name" (click)="gotodetails()">
+                  </ion-avatar>
+                </ion-col>
+                <ion-col col-5 style="padding-top:13px;text-align:left;">
+                  <h5 *ngIf="Product.name_ar != null" >{{Product.name_ar}}</h5>
+                  <p *ngIf="Product.measure_uint[0].name_ar != null" (click)="showRadio(Product)">{{Product.measure_uint[0].name_ar}}</p>
+                  <p *ngIf="Product.measure_uint[0].price != null" (click)="showRadio(Product)">{{Product.measure_uint[0].price}} SAR</p>
+                </ion-col>
+                <ion-col col-4 style="padding-top:40px">
+
+
+                  <!--button will appear frist and then icons will appears-->
+                  <button ion-button class="btn" color="secondary" outline (click)="addToCart($event, Product)">{{'Add to cart'|translate}}</button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </div>
+
+
+        </div>
+      </div> <!--END OF CATS NGFOR-->
+    </div>
+    
+  </div>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-2>
+          <a (click)="gotolog()">
+            <img class="footimg" src="assets/imgs/ic_tab_profile.png">
+          </a>
+        </ion-col>
+        <ion-col col-2>
+          <a>
+            <!--<img class="footimg" src="assets/imgs/ic_tab_fav.png">-->
+          </a>
+        </ion-col>
+
+        <ion-col col-4>
+          <a>
+            <img class="footimg" src="assets/imgs/shoppingcart.png" (click)="gotocart()">
+          </a>
+        </ion-col>
+
+        <ion-col col-2>
+
+        </ion-col>
+        <ion-col col-2>
+          <a (click)="gotosettings()">
+            <img class="footimg" src="assets/imgs/ic_tab_settings.png">
+          </a>
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

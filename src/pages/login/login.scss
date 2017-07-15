@@ -1,0 +1,50 @@
+page-login {
+     .toolbar-title{
+        color: $maincolor;
+    }
+.back-button{
+       color: #20da3a !important;
+    }
+.bag{
+    width: 100px;
+    margin: 20px auto 10px;;
+}
+ .forma{
+     text-align: center;
+ }
+.img{
+     margin-top: -22px;
+     max-height: 90%;
+     text-align: center
+    }
+.input{
+      border: 1px solid gray;
+      border-radius:10px;
+      width: 85% !important;
+      margin: 0 auto 10px;
+
+ }
+ .input-cover{
+     position:static;
+ }
+ .button{
+        padding: 20px 0 !important;
+        text-transform: none !important;
+ }
+
+ .text-input{
+     text-align: center;
+     color: darkblue;
+     font-size: larger;
+     font-weight: 500 !important;
+ }
+ ion-icon{
+  padding-left: 15px;
+  font-size: 3.2em;
+}
+label{
+    padding-top: 10px;
+    color: #007aff;
+    display:block;
+}
+}

@@ -1,0 +1,84 @@
+<!--
+  Generated template for the HistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Order History'|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div style="background-color:white">
+      <ion-segment [(ngModel)]="orderType">
+        <ion-segment-button value="RecentOrders">
+          {{'Recent Orders'|translate}}
+        </ion-segment-button>
+        <ion-segment-button value="FormerOrders">
+          {{'Former Orders'|translate}}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="orderType">
+      <div *ngSwitchCase="'RecentOrders'" >
+        <ion-card class="mycard" *ngFor="let recentOrder of recentOrders; let i = index">
+          <ion-row>
+            <ion-col col-6>
+              <h2>{{'Order'|translate}} #{{recentOrder.id}}</h2>
+            </ion-col>
+            <ion-col col-6>
+              <ion-icon ios="ios-trash" md="md-trash" class="delete" (click)="deleteOrder(recentOrder.id)"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h3>{{recentOrder.delivery_date}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h4>{{recentOrder.items}} {{'Products'|translate}}</h4>
+            </ion-col>
+            <ion-col col-6>
+              <h1>{{'Total'|translate}} {{recentOrder.total}}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+
+      </div>
+
+      <div *ngSwitchCase="'FormerOrders'" >
+        <ion-card class="mycard" *ngFor="let formerOrder of formerOrders; let i = index">
+          <ion-row>
+            <ion-col col-6>
+              <h2>{{'Order'|translate}} #{{formerOrder.id}}</h2>
+            </ion-col>
+            <ion-col col-6>
+              <ion-icon ios="ios-trash" md="md-trash" class="delete" (click)="deleteOrder(formerOrder.id)"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h3>{{formerOrder.delivery_date}}</h3>
+            </ion-col>
+            <ion-col col-6 class="stars">
+              <ion-icon class="star " [name]="iv <= formerOrder?.rate-1 ? 'star' : 'star-outline'" *ngFor="let star of stars ; let iv = index" (click)="rateOrder(formerOrder, iv)" ></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h4>{{formerOrder.items}} {{'Products'|translate}}</h4>
+            </ion-col>
+            <ion-col col-6>
+              <h1>{{'Total'|translate}} {{formerOrder.total}}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

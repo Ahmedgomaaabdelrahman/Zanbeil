@@ -1,0 +1,52 @@
+<!--
+  Generated template for the Settings page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <!--<ion-buttons start>-->
+      <!--<button ion-button navPop icon-left>-->
+        <!--<ion-icon name="arrow-back" style="font-size: 35px"></ion-icon>-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+
+    <ion-title>
+      {{'Settings'|translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list style="background-color:#f1efef">
+    <ion-item (click)="navTerms()">
+      <h5>{{'Terms &amp; Conditions'|translate}}</h5>
+      <ion-icon class="item-icon" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item (click)="navLanguage()">
+      <h5>{{'Language'|translate}}</h5>
+    </ion-item>
+    <ion-item (click)="navAbout()">
+      <h5>{{'About Zanbeel'|translate}}</h5>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item (click)="navContactUs()">
+      <h5>{{'Contact Us'|translate}}</h5>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item (click)="gohistory()" *ngIf="globalService.privateData.getValue() == 'loggedIN'">
+      <h5>{{'Order History'|translate}}</h5>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item (click)="logout()" *ngIf="globalService.privateData.getValue() == 'loggedIN'">
+      <h5>{{'Logout'|translate}}</h5>
+    </ion-item>
+    <!--<ion-item (click)="goorders()">-->
+      <!--<h5>{{'Orders'|translate}}</h5>-->
+      <!--<ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>-->
+    <!--</ion-item>-->
+  </ion-list>
+
+</ion-content>

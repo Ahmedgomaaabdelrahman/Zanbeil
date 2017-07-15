@@ -1,0 +1,72 @@
+page-orders {
+  .mapdiv {
+    background-image: url("../assets/imgs/map.jpg");
+    background-size: cover;
+    height: 100%;
+  }
+
+  .contdiv {
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 90%;
+    height: 175px;
+    left: 5%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    .details {
+      text-align: center;
+      margin-top: 15px;
+
+    }
+    .button {
+      width: 40%;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 20px;
+      background: #52c552;
+      span {
+        color: white;
+      }
+    }
+    .label {
+      margin: 5px 0 0 10px !important;
+    }
+  }
+
+  h6 {
+    margin: 0;
+    color: #e8950e;
+  }
+  span {
+    color: gray;
+  }
+  .bordcols {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+  }
+  .contact {
+    position: fixed;
+    bottom: 170px;
+    background: white;
+    width: 80%;
+    height: 50px;
+    left: 10%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    h6 {
+      padding: 7px 0 0 10px;
+      color: black;
+      font-weight: 400;
+
+    }
+    .iconscol {
+      text-align: right;
+      ion-icon {
+        padding-right: 15px;
+        font-size: 35px;
+      }
+    }
+  }
+}

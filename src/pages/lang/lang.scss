@@ -1,0 +1,36 @@
+page-lang {
+    
+img{       
+    display: block;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    }
+
+ .lang{
+     margin-top: 30%;
+ }   
+ .engbtn{
+   color: white;
+   background-color: $maincolor ;
+   width: 40%;
+   margin-left: 5%;
+   border: 1px solid white;
+   border-radius: 5px;
+   &:hover{
+       background-color: $maincolor
+   }
+ } 
+   
+ .arbtn{
+   color: white;
+   background-color: $maincolor ;
+  width: 40%;
+  margin-left: 8%;
+  border-radius: 5px;
+   &:hover{
+       background-color: $maincolor
+   }
+ }
+}

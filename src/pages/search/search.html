@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start *ngIf="plt.is('ios')">
+      <button ion-button navPop icon-left>
+        <ion-icon name="arrow-back" style="font-size: 35px" color="secondary"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="!plt.is('ios')">
+      <button ion-button navPop class="lgg" icon-only>
+        <ion-icon name="arrow-back" style="font-size: 35px" color="secondary"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button *ngIf="!grid" icon-only (click)="switchView()">
+        <ion-icon name="grid"></ion-icon>
+      </button>
+
+      <button ion-button *ngIf="grid" icon-only (click)="switchView()">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{'Search Results'|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <div style="background-color:white">
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide *ngFor="let category of productsResponse; let iii = index">
+        <h2>{{productsResponse[iii].name_ar}}</h2>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div *ngIf="productsResponse" style="height: 80%;overflow: scroll;">
+    <div style="background-color:white" hidden>
+      <ion-segment [(ngModel)]="Categories">
+
+        <ion-segment-button *ngFor="let category of productsResponse; let i = index" value="{{category.name_ar}}">
+          {{productsResponse[i].name_ar}}
+        </ion-segment-button>
+
+      </ion-segment>
+    </div>
+
+
+    <div [ngSwitch]="Categories" >
+
+      <div *ngFor="let category of productsResponse; let i = index">
+        <!--start fruits cat-->
+        <div *ngSwitchCase="category.name_ar" class="category">
+
+
+          <ion-row *ngIf="grid">
+            <ion-col col-6 *ngFor="let Product of category.product">
+              <ion-card class="cart" (click)="debugThis(product)">
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                      <img [src]="Product.product_image[0].name" (click)="navItemDetails(Product)"/>
+                    </ion-row>
+                    <ion-row>
+                      <h5>{{Product.name_ar}}</h5>
+                    </ion-row>
+                    <ion-row>
+                      <button (click)="addToCart($event,Product)" ion-button class="btn" color="secondary" outline
+                              block>
+                        {{'Add to cart'|translate}}
+                      </button>
+                    </ion-row>
+                  </ion-grid>
+                  <div class="price" (click)="showRadio(Product)">
+                    <ion-note class="noteleft">
+                      {{Product.measure_uint[0].price}} SAR
+                    </ion-note>
+                    <ion-note class="noteright">
+                      {{Product.measure_uint[0].name_ar}}
+                    </ion-note>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <div *ngIf="!grid">
+            <ion-card class="cart" *ngFor="let Product of category.product">
+              <ion-row (click)="debugThis(Product)">
+                <ion-col col-3>
+                  <ion-avatar item-left>
+                    <img class="image" [src]="Product.product_image[0].name" (click)="gotodetails()">
+                  </ion-avatar>
+                </ion-col>
+                <ion-col col-5 style="padding-top:13px;text-align:left;">
+                  <h5>{{Product.name_ar}}</h5>
+                  <p (click)="showRadio(Product)">{{Product.measure_uint[0].name_ar}}</p>
+                  <p (click)="showRadio(Product)">{{Product.measure_uint[0].price}} SAR</p>
+                </ion-col>
+                <ion-col col-4 style="padding-top:40px">
+                  <button ion-button class="btn" color="secondary" outline (click)="addToCart($event, Product)">{{'Add
+                    to cart'|translate}}
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </div>
+
+
+        </div>
+      </div> <!--END OF CATS NGFOR-->
+    </div>
+  </div>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-2>
+          <a (click)="gotolog()">
+            <img class="footimg" src="assets/imgs/ic_tab_profile.png">
+          </a>
+        </ion-col>
+        <ion-col col-2>
+          <a>
+            <!--<img class="footimg" src="assets/imgs/ic_tab_fav.png">-->
+          </a>
+        </ion-col>
+
+        <ion-col col-4>
+          <a>
+            <img class="footimg" src="assets/imgs/shoppingcart.png" (click)="gotocart()">
+          </a>
+        </ion-col>
+
+        <ion-col col-2>
+
+        </ion-col>
+        <ion-col col-2>
+          <a (click)="gotosettings()">
+            <img class="footimg" src="assets/imgs/ic_tab_settings.png">
+          </a>
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

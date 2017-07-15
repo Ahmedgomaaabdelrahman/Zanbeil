@@ -1,0 +1,73 @@
+page-additem {
+    background-color: lightgray;
+.ion-icon{
+    display: inline;
+  }
+ .numicon{
+     border: 1px solid gray;
+     border-radius: 50%;
+     display: inline;
+     padding: 2px 6px;
+     &:hover{
+         color: white
+     }
+     
+ }
+ 
+  .segment{
+    padding: 0px;
+    background-color: #5b5aab;
+        .segment-button{
+        font-size: 13px !important;
+        height: 3.2em;
+        color:white !important;
+        padding-top: 5px;      
+        }
+        .segment-activated{
+            border-bottom:none;
+        
+        }
+    }
+    .cart{
+        width: 95%;
+        border-radius: 15px !important;
+       text-align: justify;
+        .card-content{
+          padding: 13px 0 13px 16px;
+        }
+    }
+    .image{
+            width: 70px !important;
+            height: 70px !important;
+            background-color: lightgray;
+            border-radius: 40%
+        }
+        .price{
+            color: black;
+            font-weight: bold;
+            float: left;
+        }
+        .qauntity{
+            width: 42%;
+            float: right !important;
+            height: 44%;
+            margin-top: -15px;
+        }
+         .i-icon{
+                 color: #2bbd2b !important;
+                 display: inline;
+                
+             }
+          .numquan{
+            padding-left: 10px;
+            padding-right:10px; 
+            margin-top:0px;
+            color:#2bbd2b;
+            
+          }
+
+  
+}
+    
+
+  

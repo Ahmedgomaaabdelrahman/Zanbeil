@@ -1,0 +1,27 @@
+ <ion-content padding>
+<img class="backimg" src="assets/imgs/back.png" navPop>
+
+<div class="contentdiv" >
+  <img class="productimg" [src]="imageURL">
+  <h2>{{product.name}}</h2>
+  <ion-row (click)="showRadio(product)">
+    <ion-col col-6>
+      <span>SAR</span><br>
+      <h5>{{product.measure_uint[0].price}}</h5>
+    </ion-col>
+    <ion-col col-6>
+       <span>{{'Weight/Unit'}}</span><br>
+       <h5>{{product.measure_uint[0].name_ar}}</h5>
+    </ion-col>
+  </ion-row>
+
+<ion-row>
+  <ion-col col-3 *ngFor="let image of product.product_image; let ii = index">
+      <img class="imgprod" [src]="image.name" (click)="reArrangePictures(image.name)">
+  </ion-col>
+</ion-row>
+
+<button ion-button block (click)="addToCart(product)">{{'Add to cart'|translate}}</button>
+</div>
+
+</ion-content>

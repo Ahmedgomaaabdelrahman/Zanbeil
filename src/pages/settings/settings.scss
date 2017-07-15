@@ -1,0 +1,56 @@
+page-settings {
+  //.toolbar-title {
+  //  padding: 0 12px 0 50px;
+  //  font-size: 2rem;
+  //  font-weight: 500;
+  //  &:hover {
+  //    background-color: white;
+  //  }
+  //}
+  .fixed-content {
+    background-color: #f1efef;
+  }
+  ion-label, h5 {
+    display: inline;
+
+  }
+  .item {
+    padding-top: 10px;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    background-color: #f1efef
+
+  }
+  .item-icon {
+    position: absolute;
+    right: 20px;
+    color: #ec6806;
+  }
+
+  .toggle .toggle-icon, .toggle.toggle-checked.toggle-inner, .toggle .toggle-inner {
+    background-color: #ec6806 !important;
+  }
+  .carticon {
+    background-color: black;
+    border-radius: 30px;
+    height: 40px;
+    width: 50px;
+    padding-top: 7px;
+    padding-left: 13px;
+    margin-left: 15px;
+  }
+
+  li {
+    display: inline;
+    list-style-type: none;
+    color: #ec6806;
+    font-size: x-large;
+  }
+
+  .footimg {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+  }
+}

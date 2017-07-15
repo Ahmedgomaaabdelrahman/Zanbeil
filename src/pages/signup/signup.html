@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title  *ngIf="register">{{'Register'|translate}}</ion-title>
+    <ion-title *ngIf="!register">{{'Edit User'|translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form class="forma" (ngSubmit)="registerUser()" #signupForm="ngForm">
+    <ion-input name="username"  [(ngModel)]="registerCredentials.name" pattern=".{3,}" type="text" placeholder="{{'Username'| translate}}" required></ion-input>
+
+    <ion-input  name="email" [(ngModel)]="registerCredentials.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+               required type="email" placeholder="{{'E-Mail'| translate}}"></ion-input>
+
+    <ion-input name="password" [(ngModel)]="registerCredentials.password" type="password" pattern=".{6,}"
+               required placeholder="{{'Password'| translate}}"></ion-input>
+
+    <ion-input type="tel" name="Phone" pattern=".{6,}" [(ngModel)]="registerCredentials.mobile"  required placeholder="{{'Phone'| translate}}"></ion-input>
+
+    <ion-input type="text" hidden value="1"></ion-input>
+    <button *ngIf="register" [disabled]="!signupForm.form.valid" type="submit" ion-button class="agreebtn">{{'Register'|translate}}</button>
+    <button *ngIf="!register" [disabled]="!signupForm.form.valid" type="submit" ion-button class="agreebtn">{{'Edit User'|translate}}</button>
+  </form>
+
+</ion-content>

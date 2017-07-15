@@ -1,0 +1,63 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        <span>{{'Your cart'|translate}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #f1efef">
+<div>
+    <ion-segment>
+      <ion-segment-button>
+       <span class="numicon">1</span>
+        {{'Review'|translate}}
+      </ion-segment-button>
+      <ion-segment-button disabled>
+         <span class="numicon">2</span>
+        {{'Location'|translate}}
+      </ion-segment-button>
+      <ion-segment-button disabled>
+         <span class="numicon">3</span>
+        {{'Payment'|translate}}
+      </ion-segment-button>
+      </ion-segment>
+  </div>
+  <div>
+    <ion-card class="cart" *ngFor="let product of products">
+      <ion-row >
+        <ion-col col-3>
+          <ion-avatar item-left>
+            <img [src]="product.product.product_image[0].name" class="image" (click)="gotodetails()">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-5 style="padding-top:13px;text-align:left;">
+          <h5>{{product.product.name_ar}}</h5>
+          <p (click)="showRadio(product)">{{product.measure_unit.name_ar}}</p>
+          <p (click)="showRadio(product)">{{product.measure_unit.price}} SAR</p>
+        </ion-col>
+        <ion-col col-4 style="padding-top:40px">
+
+          <ion-icon  style="color: lightgray !important;" class="i-icon" ios="ios-remove-circle" md="md-remove-circle" (click)="subProduct(product)"></ion-icon>
+          <span class="numquan"> {{product.quantity}} </span>
+          <ion-icon class="i-icon" ios="ios-add-circle" md="md-add-circle" (click)="addProduct(product)"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    </div>
+</ion-content>
+
+<ion-footer>
+
+      <div style="width:100%">
+         <button ion-button name="next" color="main" type="submit"(click)="proceedOrder()" >{{'Next'|translate}}</button>
+    </div>
+</ion-footer>
+
+
+
+
+
+

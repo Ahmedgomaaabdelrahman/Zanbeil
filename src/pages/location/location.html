@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span>{{'Your cart'| translate}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-segment>
+      <ion-segment-button value="0">
+        <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+        {{'Review'| translate}}
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <span class="numicon">2</span>
+        {{'Location'| translate}}
+      </ion-segment-button>
+      <ion-segment-button disabled value="3">
+        <span class="numicon">3</span>
+        {{'Payment'|translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div>
+    <form style="text-align:center">
+      <h4>{{'Location'| translate}}</h4>
+      <ion-input type="text" class="address" placeholder="{{'Address'| translate}}"
+       name="address" [(ngModel)]="orderDetails.address" [required]="false"></ion-input>
+      <button ion-button class="mapselector" (click)="pickLocation()">{{'Select from map'| translate}}
+      </button>
+      <br>
+      <h4>{{'Pick date and time'| translate}}</h4>
+      <ion-list radio-group no-lines name="deliveryTime" [(ngModel)]="orderDetails.delivery_date_option">
+        <ion-item>
+          <ion-label>{{'Order Now'| translate}}</ion-label>
+          <ion-radio name="now" checked="true" value="Now"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{'Order Later'| translate}}</ion-label>
+          <ion-radio name="later" value="Later"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-datetime class="orderdate" displayFormat="MM DD YYYY" min="{{minDate}}" name="deliveryDate"
+                        [(ngModel)]="deliveryDate" [disabled]="orderDetails.delivery_date_option == 'Now'"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-datetime class="orderdate" displayFormat="h:mm A" pickerFormat="h mm A"  name="deliveryTime"
+                       [(ngModel)]="deliveryTime" [disabled]="orderDetails.delivery_date_option == 'Now'"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div style="width:100%">
+    <button ion-button name="next" color="main" type="submit" (click)="checkout()">{{'Confirm'|translate}}</button>
+  </div>
+</ion-footer>
+
+
+
+
+
+

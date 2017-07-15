@@ -1,0 +1,15 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Contact Us'|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="contact()" #contactForm="ngForm">
+    <ion-textarea class="message" placeholder="{{'Enter your message'}}" rows="10" cols="10" name="address"  name="message"  pattern=".{6,}"
+                  [(ngModel)]="contactObject.message" required></ion-textarea>
+    <button ion-button block type="submit" [disabled]="!contactForm.form.valid">{{'Send'|translate}}</button>
+  </form>
+
+</ion-content>

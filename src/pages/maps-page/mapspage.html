@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{'Pick your location'|translate}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="map-page">
+
+</ion-content>
+
+<ion-content>
+  <sebm-google-map  dir="ltr" [latitude]="building ? building.Lat:LATR" [longitude]="building? building.Lang: LNGR" [zoom]="zoom"
+                   (mapClick)="building ? false: mapClicked($event) " style="height: 100%;">
+    <sebm-google-map-marker *ngIf="!building" [latitude]="PIN_LATR" [longitude]="PIN_LNGR">
+
+    </sebm-google-map-marker>
+    <sebm-google-map-marker *ngIf="building" [latitude]="building.Lat" [longitude]="building.Lang"
+                            [iconUrl]="building.Pin"></sebm-google-map-marker>
+  </sebm-google-map>
+
+  <div class="bottom" *ngIf="!building">
+    <button ion-button (click)="saveAddress()">{{'Save Address'|translate}}</button>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+page-signup {
+  .toolbar-title {
+    color: #ec6806;
+  }
+  .input {
+    margin: 25px auto 0;
+    background-color: white;
+    width: 90%;
+    border-radius: 8px;
+    height: 55px;
+    border: 1px solid lightgray;
+  }
+  .text-input {
+    margin: 19px 8px 13px 25px;
+  }
+  .forma {
+    margin-top: 40px;
+  }
+  .agreebtn {
+    margin-left: 6% !important;
+    margin-top: 20px;
+    height: 50px;
+    width: 89%;
+    background-color: #ec6806;
+    border-radius: 8px;
+    &:hover {
+      background-color: #ec6806;
+    }
+
+  }
+}

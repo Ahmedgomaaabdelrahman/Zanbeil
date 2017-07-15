@@ -1,0 +1,52 @@
+page-payment {
+    
+.numicon{
+     border: 1px solid gray;
+     border-radius: 50%;
+     display: inline;
+     padding: 2px 6px;
+     &:hover{
+         color: white
+     }    
+ }
+
+ .scroll-content{
+     background-color: #f1efef;
+ }
+   .segment{
+    padding: 0px;
+    background-color: #5b5aab;
+        .segment-button{
+            font-size: 13px !important;
+            height: 3.2em;
+            line-height: 4rem !important;
+            color:white !important;
+            ion-icon{
+                    font-size: 1.6rem !important;  
+                    line-height: 4rem !important; 
+                    display: inline;
+                     }
+            }
+        .segment-activated{
+            border-bottom:none;
+            background-color: #5b5aab !important;  
+            }  
+     }
+      .image{
+           margin-top: 10px;
+           width: 60px !important;
+           height: 43px !important;
+           background-color: white;
+        }
+        h5{
+            position: absolute;
+            top: 40px;
+            left: 110px;
+            margin: -5px !important;
+        }
+        .item{
+            background-color:#f1efef; 
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+}

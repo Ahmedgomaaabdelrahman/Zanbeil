@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        <span>{{'Your cart'|translate}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+ <div>
+    <ion-segment>
+      <ion-segment-button value="0">
+       <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+        {{'Review'| translate}}
+      </ion-segment-button>
+      <ion-segment-button value="1">
+         <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+        {{'Location'| translate}}
+      </ion-segment-button>
+      <ion-segment-button value="3">
+         <span class="numicon">3</span>
+        {{'Payment'|translate}}
+      </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div>
+         <ion-list radio-group name="paymentMethod" [(ngModel)]="orderDetails.payment_method">
+              <ion-item class="payitem" >
+              <ion-label>
+                    <img class="image" src="assets/imgs/cash.png">
+                      <h5>{{'Cash on delivery'|translate}}</h5>
+                    </ion-label>
+                    <ion-radio name="pay" checked="true" value="cash"></ion-radio>
+              </ion-item>
+
+              <ion-item class="payitem" >
+              <ion-label>
+                    <img class="image" src="assets/imgs/mastercard.png">
+                      <h5>MasterCard</h5>
+                    </ion-label>
+                    <ion-radio name="pay" value="mcard" disabled></ion-radio>
+              </ion-item>
+
+              <ion-item class="payitem">
+              <ion-label>
+                    <img class="image" src="assets/imgs/paypal.png">
+                      <h5>Paypal</h5>
+                    </ion-label>
+                    <ion-radio name="pay" value="paypal" disabled></ion-radio>
+              </ion-item>
+
+              <ion-item class="payitem" >
+              <ion-label>
+                    <img class="image" src="assets/imgs/visa.png">
+                      <h5>Visa</h5>
+                    </ion-label>
+                    <ion-radio name="pay" value="visa" disabled></ion-radio>
+              </ion-item>
+
+             <ion-item class="payitem" >
+             <ion-label>
+                <img class="image" src="">
+                  <h5>Sadad</h5>
+                </ion-label>
+                <ion-radio name="pay" value="sadad" disabled></ion-radio>
+             </ion-item>
+
+             <ion-item class="payitem" >
+             <ion-label>
+                <img class="image" src="assets/imgs/point.png">
+                  <h5>Points</h5>
+                </ion-label>
+                <ion-radio name="pay" value="points" disabled></ion-radio>
+             </ion-item>
+        </ion-list>
+    </div>
+    </ion-content>
+    <ion-footer>
+      <div style="width:100%">
+         <button ion-button name="next" color="main" type="submit"(click)="finalizeOrder()">{{'Confirm Order'|translate}}</button>
+    </div>
+    </ion-footer>
